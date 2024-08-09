@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:jangalma/pages/liste_maitres.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+
 
 class DetailsMaitre extends StatelessWidget {
   final Maitre maitre;
@@ -8,7 +11,10 @@ class DetailsMaitre extends StatelessWidget {
   const DetailsMaitre({super.key, required this.maitre});
 
   Future<void> _makePhoneCall(String phoneNumber) async {
-    final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
+    final Uri phoneUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
     if (await canLaunchUrl(phoneUri)) {
       await launchUrl(phoneUri);
     } else {
@@ -17,7 +23,11 @@ class DetailsMaitre extends StatelessWidget {
   }
 
   Future<void> _sendWhatsAppMessage(String phoneNumber) async {
-    final Uri whatsappUri = Uri.parse('https://wa.me/$phoneNumber');
+    final Uri whatsappUri = Uri(
+      scheme: 'https',
+      host: 'wa.me',
+      path: phoneNumber,
+    );
     if (await canLaunchUrl(whatsappUri)) {
       await launchUrl(whatsappUri);
     } else {
@@ -58,12 +68,12 @@ class DetailsMaitre extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.call),
                   color: Colors.green,
-                  onPressed: () => _makePhoneCall('774801247'), // Remplacez par le numéro de téléphone réel
+                  onPressed: () => _makePhoneCall('774801247'), // Assurez-vous du format du numéro
                 ),
                 IconButton(
                   icon: const Icon(Icons.message),
                   color: Colors.blue,
-                  onPressed: () => _sendWhatsAppMessage('774801247'), // Remplacez par le numéro WhatsApp réel
+                  onPressed: () => _sendWhatsAppMessage('774801247'), // Assurez-vous du format du numéro
                 ),
               ],
             ),

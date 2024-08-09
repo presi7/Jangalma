@@ -46,11 +46,12 @@ class _LoginPageState extends State<LoginPage> {
           "Bienvenue dans",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
+        SizedBox(height: 8),
         Text(
-          "Jangalma",
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 233, 154, 247)),
+          "Kaay Jang",
+          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 233, 154, 247)),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 30),
         Text("Entrez vos identifiants pour vous connecter"),
       ],
     );

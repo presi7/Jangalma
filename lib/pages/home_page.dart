@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 import 'package:jangalma/pages/cours_page.dart';
 import 'package:jangalma/pages/liste_maitres.dart';
 import 'package:jangalma/pages/profile_page.dart';
@@ -12,59 +13,109 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  late VideoPlayerController _videoController;
+  late Future<void> _initializeVideoPlayerFuture;
 
-  // Liste des pages
-  final List<Widget> _pages = [
-    // Page d'accueil valide
-    Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(height: 50),
-        const Text(
-          "Jangalma",
-          style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 233, 154, 247),
-          ),
-        ),
-        const SizedBox(height: 100),
-        Image.asset(
-          'assets/images/mengaji.avif', 
-          width: double.infinity,
-          height: 200, 
-          fit: BoxFit.cover,
-        ),
-        const SizedBox(height: 50),
-        const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Text(
-            "Une application qui permet d'apprendre l'Arabe Coranique",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ],
-    ),
-    const ListeMaitres(),
-    const CoursPage(),
-    const ProfilePage(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _videoController = VideoPlayerController.asset('assets/videos/debut.mp4');
+    _initializeVideoPlayerFuture = _videoController.initialize();
+    _videoController.setLooping(true);
+  }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void dispose() {
+    _videoController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    List<Widget> _pages = [
+      SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 40),
+            const Text(
+              "Kaay Jang",
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 233, 154, 247),
+              ),
+            ),
+            const SizedBox(height: 60),
+            Image.asset(
+              'assets/images/home.jpg',
+              width: double.infinity,
+              height: 150,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Text(
+                "Une application qui permet d'apprendre l'Arabe Coranique",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 20),
+            FutureBuilder(
+              future: _initializeVideoPlayerFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Column(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: _videoController.value.aspectRatio,
+                        child: VideoPlayer(_videoController),
+                      ),
+                      const SizedBox(height: 40), 
+                    ],
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
+            const SizedBox(height: 40), 
+          ],
+        ),
+      ),
+      const ListeMaitres(),
+      const CoursPage(),
+      const ProfilePage(),
+    ];
+
     return Scaffold(
       body: _pages[_selectedIndex],
+      floatingActionButton:
+          _selectedIndex == 0 
+              ? FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      if (_videoController.value.isPlaying) {
+                        _videoController.pause();
+                      } else {
+                        _videoController.play();
+                      }
+                    });
+                  },
+                  child: Icon(
+                    _videoController.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                  ),
+                )
+              : null, 
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -86,7 +137,11 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color.fromARGB(255, 233, 154, 247),
-        onTap: _onItemTapped,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         unselectedItemColor: Colors.purple.withOpacity(0.3),
       ),
     );
