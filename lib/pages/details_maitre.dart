@@ -61,6 +61,16 @@ class DetailsMaitre extends StatelessWidget {
               maitre.specialite,
               style: const TextStyle(fontSize: 18, color: Colors.grey),
             ),
+            const SizedBox(height: 30),
+            Text(
+              maitre.disponibilite,
+              style: const TextStyle(fontSize: 18, color: Colors.grey),
+            ),
+            const SizedBox(height: 30),
+            Text(
+              maitre.description,
+              style: const TextStyle(fontSize: 18, color: Colors.grey),
+            ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

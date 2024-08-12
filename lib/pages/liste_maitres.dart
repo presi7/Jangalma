@@ -6,8 +6,10 @@ class Maitre {
   final String photoUrl;
   final String nom;
   final String specialite;
+  final String disponibilite;
+  final String description;
 
-  Maitre({required this.photoUrl, required this.nom, required this.specialite});
+  Maitre({required this.photoUrl, required this.nom, required this.specialite, required this.disponibilite, required this.description});
 }
 
 final List<Maitre> maitres = [
@@ -15,32 +17,74 @@ final List<Maitre> maitres = [
       photoUrl: 'assets/images/maitre1.webp',
       nom: 'Mass Kane',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam',
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!'),
   Maitre(
       photoUrl: 'assets/images/maitre2.webp',
       nom: 'Alioune Wane',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam', 
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!'),
   Maitre(
       photoUrl: 'assets/images/maitre1.webp',
       nom: 'Mohamed Mbao',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam', 
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!'),
   Maitre(
       photoUrl: 'assets/images/maitre2.webp',
       nom: 'Diabel Seck',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam', 
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!'),
   Maitre(
       photoUrl: 'assets/images/maitre1.webp',
       nom: 'Mbaye Thiandoum',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam', 
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!'),
   Maitre(
       photoUrl: 'assets/images/maitre2.webp',
       nom: 'Mohamed Dia',
       specialite:
-          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam'),
+          'Lire et Écriture Arabe, Mémoriser le Coran,Apprendre Xam-Xam', 
+      disponibilite:
+      'lundi soir, Mercredi soir et Samedi matin', 
+      description:
+      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia'
+      '  molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum'
+      'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium' 
+       'optio, eaque rerum!' ),
   // Ajoutez d'autres maitres ici
 ];
 

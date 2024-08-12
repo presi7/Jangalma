@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:jangalma/pages/home_page.dart';
+import 'package:jangalma/pages/liste_maitres.dart';
 
 class CoursPage extends StatefulWidget {
   const CoursPage({super.key});
@@ -76,7 +78,7 @@ class _CoursPageState extends State<CoursPage> {
                     //Navigator.of(context).pop();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      MaterialPageRoute(builder: (context) => const ListeMaitres()),
                     );
                   },
                   child: const Text('Choisissez votre maître'),

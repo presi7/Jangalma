@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:jangalma/pages/cours_page.dart';
 import 'package:jangalma/pages/liste_maitres.dart';
 import 'package:jangalma/pages/profile_page.dart';
@@ -47,14 +48,36 @@ class _HomePageState extends State<HomePage> {
                 color: Color.fromARGB(255, 233, 154, 247),
               ),
             ),
-            const SizedBox(height: 60),
-            Image.asset(
-              'assets/images/home.jpg',
-              width: double.infinity,
-              height: 150,
-              fit: BoxFit.cover,
+            const SizedBox(height: 20),
+            CarouselSlider(
+              
+              options: CarouselOptions(
+                
+                height: 220,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 3),
+                enlargeCenterPage: true,
+                viewportFraction: 1.0,
+              ),
+              items: [
+                'assets/images/alphabet1.jpg',
+                'assets/images/fatiha.jpg',
+                'assets/images/alphabet1.jpg',
+                'assets/images/fatiha2.gif',
+                'assets/images/hadith.png',
+              ].map((imagePath) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Image.asset(
+                      imagePath,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                );
+              }).toList(),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             const Padding(
               padding: EdgeInsets.all(12.0),
               child: Text(
@@ -67,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             FutureBuilder(
               future: _initializeVideoPlayerFuture,
               builder: (context, snapshot) {
@@ -78,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                         aspectRatio: _videoController.value.aspectRatio,
                         child: VideoPlayer(_videoController),
                       ),
-                      const SizedBox(height: 40), 
+                      const SizedBox(height: 40),
                     ],
                   );
                 } else {
@@ -86,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                 }
               },
             ),
-            const SizedBox(height: 40), 
+            const SizedBox(height: 40),
           ],
         ),
       ),
@@ -98,7 +121,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       floatingActionButton:
-          _selectedIndex == 0 
+          _selectedIndex == 0
               ? FloatingActionButton(
                   onPressed: () {
                     setState(() {
@@ -115,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                         : Icons.play_arrow,
                   ),
                 )
-              : null, 
+              : null,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
