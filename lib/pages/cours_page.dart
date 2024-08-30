@@ -16,7 +16,8 @@ class _CoursPageState extends State<CoursPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Choisissez votre cours'),
-        backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+        // ignore: use_full_hex_values_for_flutter_colors
+        backgroundColor: const Color(0xff016526),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -29,7 +30,7 @@ class _CoursPageState extends State<CoursPage> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 233, 154, 247),
+                color: Color.fromARGB(255, 1, 101, 38),
               ),
             ),
             const SizedBox(height: 30),
@@ -53,6 +54,11 @@ class _CoursPageState extends State<CoursPage> {
                     'Apprendre Xam-Xam',
                     Icons.lightbulb,
                     'Découvrez les secrets du Xam-Xam.',
+                  ),
+                  _buildCourseCard(
+                    'L\'Istikhar et Prieres',
+                    Icons.account_balance, // Changement de l'icône
+                    'Préparez votre avenir',
                   ),
                 ],
               ),
@@ -94,7 +100,7 @@ class _CoursPageState extends State<CoursPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 48, color: const Color.fromARGB(255, 233, 154, 247)),
+            Icon(icon, size: 48, color: const Color.fromARGB(255, 1, 101, 38)),
             const SizedBox(height: 10),
             Text(
               title,

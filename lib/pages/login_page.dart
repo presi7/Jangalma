@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
         SizedBox(height: 8),
         Text(
           "Kaay Jang",
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 233, 154, 247)),
+          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 1, 101, 38)),
         ),
         SizedBox(height: 30),
         Text("Entrez vos identifiants pour vous connecter"),
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+            backgroundColor: const Color.fromARGB(255, 1, 101, 38),
           ),
           child: const Text(
             "Se connecter",
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {},
       child: const Text(
         "Mot de passe oublie?",
-        style: TextStyle(color: Color.fromARGB(255, 233, 154, 247)),
+        style: TextStyle(color: Color.fromARGB(255, 1, 101, 38)),
       ),
     );
   }
@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
           },
           child: const Text(
             "S'inscrire",
-            style: TextStyle(color: Color.fromARGB(255, 233, 154, 247)),
+            style: TextStyle(color: Color.fromARGB(255, 1, 101, 38)),
           ),
         ),
       ],

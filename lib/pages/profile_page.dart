@@ -38,24 +38,43 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void _saveChanges() {
-    // Logique pour enregistrer les modifications
-    // Par exemple, envoyer les nouvelles données à un serveur ou les enregistrer localement
-    // ignore: avoid_print
-    print('Nom d\'utilisateur: ${usernameController.text}');
-    // ignore: avoid_print
-    print('Email: ${emailController.text}');
-    // ignore: avoid_print
-    print('Téléphone: ${phoneController.text}');
-    // ignore: avoid_print
-    print('Adresse: ${addressController.text}');
+    if (_validateFields()) {
+      // Logique pour enregistrer les modifications
+      // Par exemple, envoyer les nouvelles données à un serveur ou les enregistrer localement
+      // ignore: avoid_print
+      print('Nom d\'utilisateur: ${usernameController.text}');
+      // ignore: avoid_print
+      print('Email: ${emailController.text}');
+      // ignore: avoid_print
+      print('Téléphone: ${phoneController.text}');
+      // ignore: avoid_print
+      print('Adresse: ${addressController.text}');
 
-    setState(() {
-      isModified = false;
-    });
+      setState(() {
+        isModified = false;
+      });
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Modifications enregistrées')),
-    );
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Modifications enregistrées')),
+      );
+    }
+  }
+
+  bool _validateFields() {
+    final emailRegex = RegExp(r'\S+@\S+\.\S+');
+    if (!emailRegex.hasMatch(emailController.text)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Veuillez entrer un email valide')),
+      );
+      return false;
+    }
+    if (phoneController.text.length < 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Veuillez entrer un numéro de téléphone valide')),
+      );
+      return false;
+    }
+    return true;
   }
 
   @override
@@ -72,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mon Profil'),
-        backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+        backgroundColor: const Color.fromARGB(255, 1, 101, 38),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -105,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: ElevatedButton.styleFrom(
                     shape: const StadiumBorder(),
                     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
-                    backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+                    backgroundColor: const Color.fromARGB(255, 1, 101, 38),
                   ),
                   child: const Text(
                     'Enregistrer les modifications',

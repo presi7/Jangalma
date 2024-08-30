@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 233, 154, 247),
+                color: Color.fromARGB(255, 1, 101, 38),
               ),
             ),
             const SizedBox(height: 20),
@@ -159,13 +159,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 233, 154, 247),
+        selectedItemColor: const Color.fromARGB(255, 1, 101, 38),
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
           });
         },
-        unselectedItemColor: Colors.purple.withOpacity(0.3),
+        unselectedItemColor: const Color.fromARGB(255, 1, 101, 38).withOpacity(0.3),
       ),
     );
   }

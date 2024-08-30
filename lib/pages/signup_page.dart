@@ -153,7 +153,7 @@ class _SignupPageState extends State<SignupPage> {
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+                        backgroundColor: const Color.fromARGB(255, 1, 101, 38),
                       ),
                       child: const Text(
                         "S'inscrire",
@@ -167,7 +167,7 @@ class _SignupPageState extends State<SignupPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       border: Border.all(
-                        color: const Color.fromARGB(255, 233, 154, 247),
+                        color: const Color.fromARGB(255, 1, 101, 38),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -200,7 +200,7 @@ class _SignupPageState extends State<SignupPage> {
                             "S'inscrire avec Google",
                             style: TextStyle(
                               fontSize: 16,
-                              color: Color.fromARGB(255, 233, 154, 247),
+                              color: Color.fromARGB(255, 1, 101, 38),
                             ),
                           ),
                         ],
@@ -220,7 +220,7 @@ class _SignupPageState extends State<SignupPage> {
                         },
                         child: const Text(
                           "Se connecter",
-                          style: TextStyle(color: Color.fromARGB(255, 233, 154, 247)),
+                          style: TextStyle(color: Color.fromARGB(255, 1, 101, 38)),
                         ),
                       ),
                     ],

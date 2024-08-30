@@ -40,7 +40,7 @@ class DetailsMaitre extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(maitre.nom),
-        backgroundColor: const Color.fromARGB(255, 233, 154, 247),
+        backgroundColor: const Color.fromARGB(255, 1, 101, 38),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
